@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-st.write("Welcome to Streamlit! This is a different branch from main")
+st.write("Welcome to Streamlit! This is a different branch from main, or maybe a little bit more different")
 
 chart_data = pd.DataFrame(
      np.random.randn(20, 3),
