@@ -1,4 +1,4 @@
-app: streamlit-app-preview
+app: streamlit-app
 env: helped-night
 preview: true
 namespace: default
