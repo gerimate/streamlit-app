@@ -1,0 +1,25 @@
+app: streamlit-app-preview
+env: helped-night
+preview: true
+namespace: default
+chart:
+  name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
+values:
+  containerPort: 8501
+  gitBranch: '{{ .BRANCH }}'
+  gitRepository: gerimate/streamlit-app
+  gitSha: '{{ .SHA }}'
+  image:
+    dockerfile: Dockerfile
+    registry: customRegistry
+    repository: registry.gimlet:30003/gerimateopbohvhv/{{ .APP }}
+    strategy: dockerfile
+    tag: '{{ .SHA }}'
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      kubernetes.io/ingress.class: nginx
+    host: streamlit-app-preview.gimlet.app
+    tlsEnabled: true
+  resources:
+    ignoreLimits: true
